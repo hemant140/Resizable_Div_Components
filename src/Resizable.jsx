@@ -6,9 +6,6 @@ const ResizableBox = ({ children, boxWidth, boxHeight }) => {
     const [isResizing, setIsResizing] = useState(false);
     const [resizeDirection, setResizeDirection] = useState('');
     const [initialRect, setInitialRect] = useState({});
-    const [data, setData] = useState('');
-    const [addCount, setAddCount] = useState(0);
-    const [updateCount, setUpdateCount] = useState(0);
     const boxRef = useRef(null);
     const startX = useRef(0);
     const startY = useRef(0);
@@ -76,14 +73,6 @@ const ResizableBox = ({ children, boxWidth, boxHeight }) => {
         });
     };
 
-    const handleAdd = () => {
-        setData('');
-        setAddCount(addCount + 1);
-    };
-
-    const handleUpdate = () => {
-        setUpdateCount(updateCount + 1);
-    };
 
     return (
         <div
@@ -116,12 +105,7 @@ const ResizableBox = ({ children, boxWidth, boxHeight }) => {
                 onMouseDown={(e) => handleMouseDown(e, 'corner')}
             />
 
-            <div className="controls">
-                <button onClick={handleAdd}>Add</button>
-                <button onClick={handleUpdate}>Update</button>
-                <p>Add Count: {addCount}</p>
-                <p>Update Count: {updateCount}</p>
-            </div>
+
         </div>
     );
 };
